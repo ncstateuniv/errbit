@@ -7,15 +7,15 @@ puts "-------------------------------"
 admin_username = ENV['ERRBIT_ADMIN_USER'] || "errbit"
 
 def admin_email
-  return 'admin@example.com' if heroku_pr_review_app?
+   return 'expertiza-support@lists.ncsu.edu' if heroku_pr_review_app?
 
-  ENV['ERRBIT_ADMIN_EMAIL'] || "errbit@#{Errbit::Config.host}"
+  "expertiza-support@lists.ncsu.edu"
 end
 
 def admin_pass
-  return 'demo-admin' if heroku_pr_review_app?
+  return 'errbit' if heroku_pr_review_app?
 
-  @admin_pass ||= ENV['ERRBIT_ADMIN_PASSWORD'] || SecureRandom.urlsafe_base64(12)[0, 12]
+  @admin_pass ||= "errbit"
 end
 
 def heroku_pr_review_app?
