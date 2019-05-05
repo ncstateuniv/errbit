@@ -21,7 +21,7 @@ namespace :deploy do
  
   def deploy_branch(branch, environment)
     if branch
-      puts 'In deploy_branch'
+      puts 'In deploy_branch: env #{environment} and branch: #{branch}'
       sh "git push #{environment} #{branch}:master"
     else
       puts "Please, specify a branch to deploy."
