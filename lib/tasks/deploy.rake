@@ -7,16 +7,16 @@ namespace :deploy do
  
   desc 'Deploys a branch to production. Use DEPLOY_BRANCH to specify which branch to deploy.'
   task :production do
-    Rake::Task["git:status"].invoke("production")
-    Rake::Task["git:update_fork"].invoke("production")
-    Rake::Task["deploy:environment"].invoke("production")
+    Rake::Task["git:status"].invoke('production')
+    Rake::Task["git:update_fork"].invoke('production')
+    Rake::Task["deploy:environment"].invoke('production')
     puts 'In production task'
   end
  
   task :environment, :env do |t, args|
     puts ' #{args.env}'
     deploy_branch(ENV["DEPLOY_BRANCH"], args.env)
-    Rake::Task["heroku:migrate"].invoke("errbit-expertiza2019")
+    Rake::Task["heroku:migrate"].invoke(ENV['production_app'])
     Rake::Task["heroku:restart"]#.invoke(ENV["production_app"])
   end
  
