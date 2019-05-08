@@ -14,7 +14,6 @@ namespace :deploy do
   end
  
   task :environment, :env do |t, args|
-    puts ' #{args.env} '
     deploy_branch(ENV["DEPLOY_BRANCH"], args.env)
     Rake::Task["heroku:migrate"].invoke("errbit-expertiza2019")
     Rake::Task["heroku:restart"].invoke("errbit-expertiza2019")
@@ -22,7 +21,7 @@ namespace :deploy do
  
   def deploy_branch(branch, environment)
     if branch
-      puts 'In deploy_branch: env #{environment} and branch: #{branch}'
+      puts 'In deploy_branch.'
       sh "git push #{environment} #{branch}:master"
     else
       puts "Please, specify a branch to deploy."
