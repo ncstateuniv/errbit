@@ -17,7 +17,7 @@ namespace :deploy do
     puts ' #{args.env} '
     deploy_branch(ENV["DEPLOY_BRANCH"], args.env)
     Rake::Task["heroku:migrate"].invoke("errbit-expertiza2019")
-    Rake::Task["heroku:restart"]#.invoke(ENV["production_app"])
+    Rake::Task["heroku:restart"].invoke("errbit-expertiza2019")
   end
  
   def deploy_branch(branch, environment)
