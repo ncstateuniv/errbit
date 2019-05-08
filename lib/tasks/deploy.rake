@@ -10,7 +10,7 @@ namespace :deploy do
     Rake::Task["git:status"]
     Rake::Task["git:update_fork"]
     Rake::Task["deploy:environment"].invoke("production")
-    puts 'In production task'
+    puts 'In production task.'
   end
  
   task :environment, :env do |t, args|
