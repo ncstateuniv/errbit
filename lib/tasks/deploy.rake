@@ -20,7 +20,6 @@ namespace :deploy do
       sh "git push #{environment} #{branch}:master"
     else
       puts "Please, specify a branch to deploy."
-      puts "Usage => deploy:staging DEPLOY_BRANCH=release_0.15"
       exit 1
     end
   end
