@@ -1,18 +1,5 @@
 namespace :git do
 
-
-
-
-  #desc "Fetch and merge from git server, using current checked out branch"
-  #task :fetch_upstream do
-   # puts 'Fetching upstream'
-    #sh ""
-    #puts 'Fetched'
-  #end
-
-
-
-
 desc "Rewrite your master branch so that any commits not in upstream/master are replayed on top of the fetched branch"
   task :update_fork do
     puts 'Git rebase'
@@ -24,9 +11,6 @@ desc "Rewrite your master branch so that any commits not in upstream/master are 
   task :status do
     puts 'Showing `git status` of all source files'
     sh "git status --short"
-
-
-
 
   end
 end

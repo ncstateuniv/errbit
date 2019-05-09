@@ -1,10 +1,5 @@
 namespace :deploy do
  
-  desc 'Deploys a branch to staging. Use DEPLOY_BRANCH to specify which branch to deploy.'
-  task :staging do
-    Rake::Task["deploy:environment"].invoke("staging")
-  end
- 
   desc 'Deploys a branch to production. Use DEPLOY_BRANCH to specify which branch to deploy.'
   task :production do
     Rake::Task["git:status"]
